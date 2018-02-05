@@ -22,8 +22,8 @@ def scrape():
 
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
-    news_titles = soup.find('div', class_='content_title')
-    news_paras = soup.find('div', class_='article_teaser_body')
+    news_titles = soup.find('div', class_='content_title').text
+    news_paras = soup.find('div', class_='article_teaser_body').text
 
     mars_dict['news_titles'] = news_titles
     mars_dict['news_paras'] = news_paras
@@ -107,7 +107,7 @@ def scrapeNew():
 
 @app.route("/")
 def home():
-    mars_contents = db.scrape_contents.find()
+    mars_contents = db.scrape_contents.find_one()
     return render_template('index.html', mars_contents=mars_contents)
 
 if __name__ == "__main__":

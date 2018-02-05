@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Mission to Mars</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="/static/styles/styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
@@ -21,13 +21,19 @@
                         <button type="button">Scrape New Data</button>
                     </div>
                 </div>
-                <div class="row">
-                    
-                </div>
             </div>
         </header>
     <body>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 title">
+                    <h1>Latest Mars News</h1>
+                    <h5>{{mars_contents["news_titles"]}}</h5>
+                    <p>{{mars_contents["news_paras"]}}</p>
+                </div>
+            </div>
+        </div>
     </body>
 
+<!-- <p>{{mars_contents}}</p> -->
 </html>
