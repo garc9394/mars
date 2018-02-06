@@ -18,7 +18,9 @@
                         <h1>Mission to Mars</h1>
                     </div>
                     <div class="col-md-12 scrape_btn">
-                        <button type="button">Scrape New Data</button>
+                        <form action="/scrape">
+                            <input type="submit" value="Scrape New Data" />
+                        </form>
                     </div>
                 </div>
             </div>
@@ -26,10 +28,51 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 title">
-                    <h1>Latest Mars News</h1>
-                    <h5>{{mars_contents["news_titles"]}}</h5>
+                <div class="col-md-12 news">
+                    <h2>Latest Mars News</h2>
+                    <h4>{{mars_contents["news_titles"]}}</h4>
                     <p>{{mars_contents["news_paras"]}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 featured">
+                    <h2>Featured Mars Image</h2>
+                    <img src="{{mars_contents["featured_image_url"]}}" alt="Featured Image" width="100%"></img>
+                </div>
+                <div class="col-md-4 weather_facts">
+                    <div class="row">
+                        <div class="col-md-12 weather">
+                            <h5>Current Weather on Mars</h5>
+                            <p>{{mars_contents["mars_weather"]}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 facts">
+                            <h3>Mars Facts</h3></row>
+                            <div>{{mars_contents["mars_facts"]}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 hemisphere">
+                    <h1>Mars Hemispheres</h1>
+                    <div class="col-md-6">
+                        <img src="{{mars_contents["hemisphere_image_urls"][0]["image_url"]}}" width="100%"></img>
+                        <h2>{{mars_contents["hemisphere_image_urls"][0]["title"]}}</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{{mars_contents["hemisphere_image_urls"][1]["image_url"]}}" width="100%"></img>
+                        <h2>{{mars_contents["hemisphere_image_urls"][1]["title"]}}</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{{mars_contents["hemisphere_image_urls"][2]["image_url"]}}" width="100%"></img>
+                        <h2>{{mars_contents["hemisphere_image_urls"][2]["title"]}}</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{{mars_contents["hemisphere_image_urls"][3]["image_url"]}}" width="100%"></img>
+                        <h2>{{mars_contents["hemisphere_image_urls"][3]["title"]}}</h2>
+                    </div>
                 </div>
             </div>
         </div>

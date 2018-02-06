@@ -61,11 +61,11 @@ def scrape():
     tables
 
     df = tables[0]
-    df.columns = ['Fact', 'Value']
-    df.head()
+    df.columns = ['Description', 'Value']
+    df.set_index('Description', inplace=True)
 
     html_table = df.to_html()
-    print(html_table)
+    mars_dict['mars_facts'] = html_table
 
     df.to_html('./templates/mars_facts.html')
 
@@ -101,8 +101,9 @@ app = Flask(__name__)
 
 @app.route("/scrape")
 def scrapeNew():
+    collection.remove()
     scrape()
-    mars_contents = db.scrape_contents.find()
+    mars_contents = db.scrape_contents.find_one()
     return render_template('index.html', mars_contents=mars_contents)
 
 @app.route("/")
