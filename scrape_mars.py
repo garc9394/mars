@@ -89,7 +89,7 @@ def scrape():
         html = browser.html
         soup = BeautifulSoup(html, 'html.parser')
         title = soup.find('h2', class_='title').text.replace(' Enhanced', '')
-        image_url = soup.find('a', text='Original').get('href')
+        image_url = soup.find('a', text='Sample').get('href')
         dict = {'title': title, 'image_url': image_url}
         hemisphere_image_urls.append(dict)
 
